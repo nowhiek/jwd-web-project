@@ -1,0 +1,65 @@
+.secondary-menu_container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.secondary-menu_container form {
+	margin: 0 10px;
+}
+
+.secondary-menu_container form button, .secondary-menu_container a {
+	width: 6rem;
+	height: 2.5rem;
+	font-size: 12px;
+	text-align: center;
+	line-height: 2;
+}
+
+.secondary-menu_container a {
+	margin: 0 10px;
+}
+
+.rus {
+	background: url(../img/ru.png) no-repeat;	
+	background-size: cover;
+	background-position: center;
+}
+
+.eng {
+	background: url(../img/uk.svg) no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+
+.table-container {
+	padding: 5rem 0 0 5rem;
+}
+
+.li-container {
+	padding-top: 5rem;
+	position: relative;
+    left: 2rem;
+}	
+
+.li-container li {
+	margin: 1rem 0;
+}
+
+.li-container h1 {
+	position: relative;
+	right: 2rem;
+	padding: 2rem;
+	border-bottom: 2px solid black;	
+}
+
+.li-container ul {
+	position: relative;
+    top: 54px;
+    border: 2px solid black;
+    box-shadow: 0 1px 17px 4px #6c757d;
+}
+
+.main-content {
+	margin-top: 30px;
+}

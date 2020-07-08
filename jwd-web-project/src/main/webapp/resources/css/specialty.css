@@ -1,0 +1,96 @@
+h6{
+	text-align: left;
+}
+
+.specialty {
+	width: 800px;
+	height: 400px;
+	margin-left: 27%;
+}
+
+.starter-template {
+  padding: 3rem 1.5rem;
+	    line-height: 0.5;
+  display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.starter-template p {
+	text-indent: 50;
+}
+
+.img-container {
+	background: url(../resources/img/books.jpg) no-repeat;
+	background-size: cover;
+	background-position: center;
+	width: 40vw;
+    height: 40vh;
+    margin-top: 7rem;
+}
+
+.item-specialty {
+	margin-top: 20px;
+	height: 400px;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+}
+
+.item-specialty:hover {
+	box-shadow: 0 1px 20px 4px #6c757d;
+}
+
+.img-specialty {
+	height: 100%;
+	width: 70%;
+	display: inline;
+	background: url(resources/img/books.jpg) no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+
+.discription-specialty {
+	height: 400px;
+	width: 30%;
+	display: inline;
+	float: right;
+}
+
+.text-discription {
+	margin: 5%;
+	width: 90%;
+	height: 20%;
+	text-align: center;
+	align-items: center;
+    display: flex;
+}
+
+.content-discription {
+	height: 40%;
+	width: 90%;
+	margin: 5%;
+	text-align: center;
+	font-style: italic;
+	display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: self-end;
+	
+}
+
+.discription-button {
+	height: 40%;
+	width: 90%;
+	margin: 5%;
+	text-align: center;
+	font-style: italic;
+	display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: self-end;
+}
+
+.content-discription p {
+	text-align: center;
+}
