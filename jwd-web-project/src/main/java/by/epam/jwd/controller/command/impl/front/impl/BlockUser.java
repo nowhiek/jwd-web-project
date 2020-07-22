@@ -42,11 +42,11 @@ public class BlockUser implements Command {
 			user = serviceImpl.findUserByIdUser(idUser);
 			
 			if (user != null) {
-				user.setUserBan(true);
+				user.setUserBan(!user.getUserIsBanned());
 				flag = serviceImpl.update(user);
 				
 				if (flag) {
-					session.setAttribute(SessionParameter.SUCCESS_BAN_USER, SessionParameter.SUCCESS_BAN_USER);
+					page = JSPPageName.ADMIN_PAGE;
 				} else {
 					session.setAttribute(SessionParameter.UNSUCCESS_BAN_USER, SessionParameter.UNSUCCESS_BAN_USER);
 				}
@@ -54,7 +54,7 @@ public class BlockUser implements Command {
 				
 			}
 		} catch (ServiceException e) {
-			logger.log(Level.ERROR, e.getStackTrace());
+			logger.log(Level.ERROR, e);
 			page = JSPPageName.ERROR_PAGE;
 		}
 		

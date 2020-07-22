@@ -52,7 +52,20 @@ public class FacultyServiceImpl implements FacultyService {
 		
 		return flag;
 	}
-
+	
+	@Override
+	public boolean remove(Faculty faculty) throws ServiceException {
+		boolean flag;
+		
+		try {
+			flag = facultyDAO.remove(faculty);
+		} catch (DAOException e) {
+			throw new ServiceException("I can't remove the faculty. [REMOVE : FACULTY_DAO]", e);
+		}
+		
+		return flag;
+	}
+	
 	@Override
 	public Faculty findFacultyByName(String name) throws ServiceException {
 		Faculty faculty = null;

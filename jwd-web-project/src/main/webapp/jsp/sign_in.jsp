@@ -33,11 +33,7 @@
 					<c:out value="${user_not_exist_message}"></c:out>
 				</div>
 			</c:if>
-			<c:if test="${not empty user_is_blocked}">
-				<div class="alert alert-warning" role="alert">
-					<c:out value="${user_is_blocked_message}"></c:out>
-				</div>
-			</c:if>
+			
 			<c:if test="${not empty empty_login}">
 				<div class="alert alert-warning" role="alert">
 					<c:out value="${empty_login_message}"></c:out>

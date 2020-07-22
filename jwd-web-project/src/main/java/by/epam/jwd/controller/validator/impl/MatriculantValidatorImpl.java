@@ -22,6 +22,10 @@ public class MatriculantValidatorImpl implements MatriculantValidator {
 			validation.add(SessionParameter.INVALID_CERTIFICATE);
 		}
 		
+		if (!matriculantValidator.getMatriculantSpecialtyIdValidator().validate(matriculant.getIdSpecialty())) {
+			validation.add(SessionParameter.INVALID_SPECIALTY);
+		}
+		
 		return validation;
 	}
 }

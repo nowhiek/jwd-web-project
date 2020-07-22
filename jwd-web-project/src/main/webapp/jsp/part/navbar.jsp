@@ -38,7 +38,7 @@
 	</head>
 	<body>
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-			<a class="navbar-brand" href="index.jsp">University</a>
+			<a class="navbar-brand" href="${pageContext.request.contextPath}/index.jsp">University</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
 			  <span class="navbar-toggler-icon"></span>
 			</button>
@@ -82,13 +82,13 @@
 				
 				<c:set var="user" scope="session" value="${ROLE}"/>
 				<div class='secondary-menu_container'>
-					<form action="Controller" method="POST">
+					<form action="${pageContext.request.contextPath}/Controller" method="POST">
 						<input type="hidden" name="local" value="en" />
 						<input type="hidden" name="command" value="change_locale" />
 						<button class="btn btn-primary eng" type="submit"></button>
 					</form>
 					
-					<form action="Controller" method="POST">
+					<form action="${pageContext.request.contextPath}/Controller" method="POST">
 						<input type	="hidden" name="local" value="ru" />
 						<input type="hidden" name="command" value="change_locale" />
 						<button class="btn btn-primary rus" type="submit"></button>
@@ -96,21 +96,21 @@
 				
 					<c:choose>
 					    <c:when test="${user == 'User'}">
-					    	<form action="Controller" method="POST">
+					    	<form action="${pageContext.request.contextPath}/Controller" method="POST">
 								<input type="hidden" name="command" value="show_user_detail">
 								<button class="btn btn-primary" type="submit">${user_detail_link}</button>
 							</form>
-					        <form action="Controller" method="POST">
+					        <form action="${pageContext.request.contextPath}/Controller" method="POST">
 								<input type="hidden" name="command" value="sign_out">
 								<button class="btn btn-primary" type="submit">${sign_out_button}</button>
 							</form>
 					    </c:when>    
 					    <c:when test="${user == 'Admin'}">
-							<form action="Controller" method="POST">
+							<form action="${pageContext.request.contextPath}/Controller" method="POST">
 								<input type="hidden" name="command" value="show_admin_panel">
 								<button class="btn btn-primary" type="submit">${admin_link}</button>
 							</form>
-							<form action="Controller" method="POST">
+							<form action="${pageContext.request.contextPath}/Controller" method="POST">
 								<input type="hidden" name="command" value="sign_out">
 								<button class="btn btn-primary" type="submit">${sign_out_button}</button>
 							</form>

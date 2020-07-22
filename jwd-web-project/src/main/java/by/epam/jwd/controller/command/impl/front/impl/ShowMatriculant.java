@@ -53,12 +53,10 @@ public class ShowMatriculant implements Command {
 				session.setAttribute(FormParameter.FACULTY, faculty.getFacultyName());
 				session.setAttribute(FormParameter.SPECIALTY, specialty.getSpecialtyName());
 				session.setAttribute(FormParameter.CERTIFICATE, findMatriculantlByIdUser.getCertificate());
-			} else { 
-				List<Specialty> specialties = serviceFactory.getSpecialtyService().getAll();
+			} else { 			
 				List<Faculty> faculties = serviceFactory.getFacultyService().getAll();
 				List<TypeStudy> types = serviceFactory.getTypeStudyService().getAll();
-				
-				session.setAttribute(FormParameter.SPECIALTIES, specialties);
+								
 				session.setAttribute(FormParameter.FACULTIES, faculties);
 				session.setAttribute(FormParameter.TYPES, types);
 				
@@ -68,7 +66,7 @@ public class ShowMatriculant implements Command {
 		        session.removeAttribute(FormParameter.CERTIFICATE);
 			}
 		} catch (ServiceException e) {
-			logger.log(Level.ERROR, e.getStackTrace());
+			logger.log(Level.ERROR, e);
 			page = JSPPageName.ERROR_PAGE;
 		}
 		

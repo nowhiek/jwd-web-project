@@ -6,6 +6,6 @@ public class MatriculantCertificateValidatorImpl implements UserFieldValidator<I
 
 	@Override
 	public boolean validate(Integer certificate) {
-		return (certificate > 0 && certificate <= 100);
+		return (certificate >= 0 && certificate <= 100);
 	}
 }

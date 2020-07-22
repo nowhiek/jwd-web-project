@@ -64,7 +64,7 @@ public class Registr implements Command {
 		} catch (UserExistServiceException ex) {
 			request.setAttribute(SessionParameter.USER_ALREADY_EXIST, SessionParameter.USER_ALREADY_EXIST);
 		} catch (ServiceException e) {
-			logger.log(Level.ERROR, e.getStackTrace());
+			logger.log(Level.ERROR, e);
 			response.sendRedirect(JSPPageName.ERROR_PAGE);
 		} 
 		

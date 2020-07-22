@@ -13,6 +13,9 @@
 		<fmt:setLocale value="${sessionScope.local}"/>
 		<fmt:setBundle basename="locale/local" var="loc" />
 		
+		<fmt:message bundle="${loc}" key="local.loclabel.qualification" var="qualification_label" />
+		<fmt:message bundle="${loc}" key="local.loclabel.time_study" var="time_study_label" />
+		
 		<fmt:message bundle="${loc}" key="local.message.user_already_exist" var="user_already_exist_message" />
 		
 	</head>
@@ -27,12 +30,26 @@
 				<div class="starter-template">
 					<h2 style='text-align: center' >${specialties[0].getSpecialtyName()}</h2>
 
-					<h6>Квалификация:</h6>
+					<h6>${qualification_label}:</h6>
 					<p>#{specialty.getSpecialtyProfession - добавить в базу какую профессию получишь}</p>
 					<br>
-					<h6>Сроки обучения:</h6>
+					<h6>${time_study_label}:</h6>
 					<c:forEach items="${type_studies}" var="type">
-						<p>на основе "${type.getStudyName().toLowerCase()}" формы обучения - <i>${specialties[count].getCountYearStudy()}</i></p>
+						<c:set var="year" value="${specialties[count].getCountYearStudy()}" scope="page"/>
+						<p>
+							на основе "${type.getStudyName().toLowerCase()}" формы обучения - 
+							<i>
+								${specialties[count].getCountYearStudy()}
+							</i>
+							<c:choose>
+								<c:when test="${year <= '4'}">
+									года
+								</c:when>
+								<c:otherwise>
+									лет
+								</c:otherwise>
+							</c:choose>			
+						</p>
 						<br>
 						<c:set var="count" value="${count + 1}" scope="page"/>
 					</c:forEach>

@@ -55,7 +55,7 @@ public class ShowUserDetail implements Command {
 				session.removeAttribute(FormParameter.USER_NUMBER_PASSPORT);
 			}
 		} catch (ServiceException e) {
-			logger.log(Level.ERROR, e.getStackTrace());
+			logger.log(Level.ERROR, e);
 			page = JSPPageName.ERROR_PAGE;
 		}
 		

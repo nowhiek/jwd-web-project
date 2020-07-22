@@ -24,7 +24,7 @@ public class ShowSpecialtiesByFaculty implements AjaxCommand {
 		FacultyService serviceImpl = serviceFactory.getFacultyService();
 		
 		String facultyName = request.getParameter(FormParameter.FACULTY);
-		//String typeName = request.getParameter(FormParameter.TYPE_STUDY);
+		String typeName = request.getParameter(FormParameter.TYPE_STUDY);
 		
 		String answer = null;
 		Gson gson = new Gson();
@@ -33,9 +33,13 @@ public class ShowSpecialtiesByFaculty implements AjaxCommand {
 		
 		try {	
 			faculty = serviceImpl.findFacultyByName(facultyName);
-			//type = serviceFactory.getTypeStudyService().findTypeStudyByName(typeName);
+			type = serviceFactory.getTypeStudyService().findTypeStudyByName(typeName);
+
+			System.out.println(faculty +"    "+ type);
 			
-			List<Specialty> specialties = serviceFactory.getSpecialtyService().getAllByFacultyId(faculty);
+			List<Specialty> specialties = serviceFactory.getSpecialtyService().getSpecialtiesByFacultyTypeStudy(faculty, type);
+			
+			System.out.println(specialties);
 			
 			answer = gson.toJson(specialties);
 		} catch (ServiceException e) {

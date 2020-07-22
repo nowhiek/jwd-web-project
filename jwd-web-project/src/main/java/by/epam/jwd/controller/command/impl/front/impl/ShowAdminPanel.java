@@ -43,7 +43,7 @@ public class ShowAdminPanel implements Command {
 				session.setAttribute(SessionParameter.EMPTY_USERS, SessionParameter.EMPTY_USERS);
 			}
 		} catch (ServiceException e) {
-			logger.log(Level.ERROR, e.getStackTrace());
+			logger.log(Level.ERROR, e);
 			page = JSPPageName.ERROR_PAGE;
 		}
 		

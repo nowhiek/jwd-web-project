@@ -29,6 +29,7 @@
 		<fmt:message bundle="${loc}" key="local.loclink.change_user_password" var="change_user_password_link" />
 		
 		<fmt:message bundle="${loc}" key="local.locbutton.change_user_detail" var="change_user_detail_button" />
+		<fmt:message bundle="${loc}" key="local.locbutton.add_matriculant" var="add_matriculant_button" />
 		
 		<fmt:message bundle="${loc}" key="local.message.invalid_name" var="invalid_name_message" />
 		<fmt:message bundle="${loc}" key="local.message.invalid_surname" var="invalid_surname_message" />
@@ -41,41 +42,40 @@
 		<jsp:include page="part/navbar.jsp"/>
 		<jsp:include page="part/header.jsp"/>
 		<div class="container">
-			<c:if test="${not empty succes_update_user_detail}">
-				<div class="alert alert-warning" role="alert">
-					<c:out value="${succes_update_user_detail_message}"></c:out>
-				</div>
-			</c:if>	
-			<c:if test="${not empty unsucces_update_user_detail}">
-				<div class="alert alert-warning" role="alert">
-					<c:out value="${unsucces_update_user_detail_message}"></c:out>
-				</div>
-			</c:if>	
-			<c:if test="${not empty invalid_name}">
-				<div class="alert alert-warning" role="alert">
-					<c:out value="${invalid_name_message}"></c:out>
-				</div>
-			</c:if>	
-			<c:if test="${not empty invalid_surname}">
-				<div class="alert alert-warning" role="alert">
-					<c:out value="${invalid_surname_message}"></c:out>
-				</div>
-			</c:if>	
-			<c:if test="${not empty invalid_birthday}">
-				<div class="alert alert-warning" role="alert">
-					<c:out value="${invalid_birthday_message}"></c:out>
-				</div>
-			</c:if>	
-			<c:if test="${not empty invalid_passport}">
-				<div class="alert alert-warning" role="alert">
-					<c:out value="${invalid_passport_message}"></c:out>
-				</div>
-			</c:if>	
-			<form action="Controller" method="POST">
+			<form action="${pageContext.request.contextPath}/Controller" method="POST">
 				<div class="row">
 					<div class="col-md-8 order-md-1">
 						<h2 class="mb-3 mt-3">Profile</h2>
-						
+							<c:if test="${not empty succes_update_user_detail}">
+								<div class="alert alert-warning" role="alert">
+									<c:out value="${succes_update_user_detail_message}"></c:out>
+								</div>
+							</c:if>	
+							<c:if test="${not empty unsucces_update_user_detail}">
+								<div class="alert alert-warning" role="alert">
+									<c:out value="${unsucces_update_user_detail_message}"></c:out>
+								</div>
+							</c:if>	
+							<c:if test="${not empty invalid_name}">
+								<div class="alert alert-warning" role="alert">
+									<c:out value="${invalid_name_message}"></c:out>
+								</div>
+							</c:if>	
+							<c:if test="${not empty invalid_surname}">
+								<div class="alert alert-warning" role="alert">
+									<c:out value="${invalid_surname_message}"></c:out>
+								</div>
+							</c:if>	
+							<c:if test="${not empty invalid_birthday}">
+								<div class="alert alert-warning" role="alert">
+									<c:out value="${invalid_birthday_message}"></c:out>
+								</div>
+							</c:if>	
+							<c:if test="${not empty invalid_passport}">
+								<div class="alert alert-warning" role="alert">
+									<c:out value="${invalid_passport_message}"></c:out>
+								</div>
+							</c:if>	
 							<div class="row">
 								<div class="col-md-6 mb-3">
 									<label for="firstName">${first_name_label}:</label>
@@ -96,9 +96,13 @@
 												<option selected value="${sex}">${sex}</option>
 												<option value="Женский">Женский</option>
 											</c:when>
-											<c:otherwise>
+											<c:when test="${sex == 'Женский'}">
 												<option selected value="${sex}">${sex}</option>
 												<option value="Мужской">Мужской</option>
+											</c:when>
+											<c:otherwise>
+												<option value="Мужской">Мужской</option>
+												<option value="Мужской">Женский</option>
 											</c:otherwise>
 										</c:choose>
 									</select>
@@ -138,7 +142,7 @@
 			</form>
 			<form action="Controller" method="POST">
 				<input type="hidden" name="command" value="show_matriculant">
-				<button class="btn btn-primary" type="submit">Заявление</button>
+				<button class="btn btn-primary" type="submit">${add_matriculant_button}</button>
 			</form>	
 			
 			<a href="${pageContext.request.contextPath}/jsp/user_password_page.jsp">${change_user_password_link}</a>	

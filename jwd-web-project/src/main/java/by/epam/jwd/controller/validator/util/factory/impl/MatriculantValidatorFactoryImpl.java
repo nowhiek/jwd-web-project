@@ -3,13 +3,14 @@ package by.epam.jwd.controller.validator.util.factory.impl;
 import by.epam.jwd.controller.validator.util.UserFieldValidator;
 import by.epam.jwd.controller.validator.util.factory.MatriculantValidatorFactory;
 import by.epam.jwd.controller.validator.util.impl.MatriculantCertificateValidatorImpl;
+import by.epam.jwd.controller.validator.util.impl.MatriculantSpecialtyIdValidatorImpl;
 
 public class MatriculantValidatorFactoryImpl implements MatriculantValidatorFactory {
 
 	private static final MatriculantValidatorFactoryImpl instance = new MatriculantValidatorFactoryImpl();
 	
 	private static final UserFieldValidator<Integer> matriculantCertificateValidator = new MatriculantCertificateValidatorImpl();
-
+	private static final UserFieldValidator<Integer> matriculantSpecialtyIdValidator = new MatriculantSpecialtyIdValidatorImpl();
 	private MatriculantValidatorFactoryImpl() {
 	}
 	
@@ -20,5 +21,10 @@ public class MatriculantValidatorFactoryImpl implements MatriculantValidatorFact
 	@Override
 	public UserFieldValidator<Integer> getMatriculantCertificateValidator() {
 		return matriculantCertificateValidator;
+	}
+
+	@Override
+	public UserFieldValidator<Integer> getMatriculantSpecialtyIdValidator() {
+		return matriculantSpecialtyIdValidator;
 	}
 }

@@ -23,7 +23,7 @@ public class SpecialtyDAOImpl implements SpecialtyDAO {
 	private final static String GET_ALL_GROUP_BY_SPECIALTY_NAME = "SELECT * FROM Specialty GROUP BY specialty_name";
 	private final static String GET_SPECIALTY_BY_FACULTY = "select specialty.id, specialty.id_faculty, specialty.id_type, specialty.id_plan, specialty.specialty_name, specialty.count_year_study from specialty inner join typestudy on specialty.id_type = typestudy.id inner join faculty on faculty.id = specialty.id_faculty where specialty.specialty_name = ? and faculty.id = ?";
 	private final static String GET_ALL_BY_FACULTY_ID = "SELECT * FROM Specialty WHERE id_faculty = ? order by id_faculty" ;
-	private final static String GET_SPECIALTIES_BY_FACULTY_TYPESTUDY = "SELECT * FROM Specialty inner join typestudy on specialty.id_type = typestudy.id inner join faculty on faculty.id = specialty.id_faculty WHERE specialty.id_type = ? and specialty.id_faculty = ?";
+	private final static String GET_SPECIALTIES_BY_FACULTY_TYPESTUDY = "SELECT specialty.id, specialty.id_type, specialty.id_faculty, specialty.id_plan, specialty.specialty_name, specialty.count_year_study FROM Specialty inner join typestudy on specialty.id_type = typestudy.id inner join faculty on faculty.id = specialty.id_faculty WHERE specialty.id_type = ? and specialty.id_faculty = ?";
 	private final static String ADD_SPECIALTY = "INSERT INTO Specialty (id_type, id_faculty, id_plan, specialty_name, count_year_study) VALUES (?, ?, ?, ?, ?)";
 	private final static String GET_SPECIALTY_BY_ID = "SELECT * from Specialty WHERE id = ?";
 	private final static String GET_SPECIALTY_BY_NAME = "SELECT * from Specialty WHERE specialty_name = ?";
@@ -158,8 +158,9 @@ public class SpecialtyDAOImpl implements SpecialtyDAO {
 		try {
 			connection = connectionPool.takeConnection();	
 			ps = connection.prepareStatement(GET_SPECIALTIES_BY_FACULTY_TYPESTUDY);
-			ps.setInt(1, faculty.getId());
-			ps.setInt(2, type.getId());
+			ps.setInt(1, type.getId());
+			ps.setInt(2, faculty.getId());
+			
 			
 			rs = ps.executeQuery();
 			

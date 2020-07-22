@@ -9,6 +9,7 @@ public interface FacultyService {
 	List<Faculty> getAll() throws ServiceException;
 	boolean create(Faculty faculty) throws ServiceException;
 	boolean update(Faculty faculty) throws ServiceException;
+	boolean remove(Faculty faculty) throws ServiceException;
 	Faculty findFacultyByName(String name) throws ServiceException;
 	Faculty findFacultyById(int idUser) throws ServiceException;
 }

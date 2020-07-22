@@ -1,5 +1,7 @@
 package by.epam.jwd.service.impl;
 
+import java.util.List;
+
 import by.epam.jwd.bean.Plan;
 import by.epam.jwd.dao.PlanDAO;
 import by.epam.jwd.dao.exception.DAOException;
@@ -11,6 +13,19 @@ public class PlanServiceImpl implements PlanService {
 
 	private SqlDAOFactory sqlDAOFactory = SqlDAOFactory.getInstance();
 	private PlanDAO planDAO = sqlDAOFactory.getPlanDAO();
+	
+	@Override
+	public List<Plan> getAll() throws ServiceException {
+		List<Plan> list;
+		
+		try {
+			list = planDAO.getAll();
+		} catch(DAOException e) {
+			throw new ServiceException("Change the discription this exception. [GET_ALL : PLAN_DAO]");
+		}
+		
+		return list;
+	}
 	
 	@Override
 	public boolean create(Plan plan) throws ServiceException {
@@ -76,5 +91,4 @@ public class PlanServiceImpl implements PlanService {
         
 		return plan;
 	}
-
 }

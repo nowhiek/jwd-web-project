@@ -13,6 +13,11 @@
 		<fmt:setLocale value="${sessionScope.local}"/>
 		<fmt:setBundle basename="locale/local" var="loc" />
 		
+		<fmt:message bundle="${loc}" key="local.locbutton.list" var="list_button" />
+		<fmt:message bundle="${loc}" key="local.locbutton.table" var="table_button" />
+		<fmt:message bundle="${loc}" key="local.locbutton.more" var="more_button" />
+		
+		
 		<fmt:message bundle="${loc}" key="local.empty_message.empty_specialties" var="empty_specialties_message" />		
 	</head>
 	<body>		
@@ -22,14 +27,19 @@
 		<c:set var="count" value="0" scope="page"/>
 		
 		<div class="container" style="margin-top: 20px">
-			<form action="Controller" method="POST">
-			    <input type="hidden" name="command" value="show_all_specialties">
-			    <button class="btn btn btn-primary" type="submit">Список</button>
-		    </form>
-			<form action="Controller" method="POST">
-			    <input type="hidden" name="command" value="show_table_specialties">
-			    <button class="btn btn btn-primary" type="submit">Таблица</button>
-		    </form>
+			<div class="row">
+				<div class="col-md-6 mb-3">		
+					<form action="${pageContext.request.contextPath}/Controller" method="POST">
+					    <input type="hidden" name="command" value="show_all_specialties">
+					    <button class="btn btn btn-primary" type="submit">${list_button}</button>
+				    </form>
+					<form action="${pageContext.request.contextPath}/Controller" method="POST">
+					    <input type="hidden" name="command" value="show_table_specialties">
+					    <button class="btn btn btn-primary" type="submit">${table_button}</button>
+				    </form>
+				</div>
+			</div>
+			
 			<c:choose>
 				<c:when test="${not empty specialties}">
 					<c:forEach items="${specialties}" var="spec">
@@ -47,7 +57,7 @@
 										<input type="hidden" name="id_faculty" value="${faculties[count].getId()}">
 										<input type="hidden" name="command" value="show_specialty">
 										<div class="discription-button">
-											<button class="btn btn-primary btn-lg btn-block" type="submit">Подробнее</button>
+											<button class="btn btn-primary" type="submit">${more_button}</button>
 										</div>										
 									</form>
 								</div>

@@ -15,14 +15,15 @@
 
 		<fmt:message bundle="${loc}" key="local.loclabel.old_password" var="old_password_label" />
 		<fmt:message bundle="${loc}" key="local.loclabel.new_password" var="new_password_label" />
+		<fmt:message bundle="${loc}" key="local.loclabel.change_password" var="change_password_label" />
 		
 		<fmt:message bundle="${loc}" key="local.loclink.back" var="back_link" />
 		
 		<fmt:message bundle="${loc}" key="local.locbutton.change_user_password" var="change_user_password_button" />
 		
 		<fmt:message bundle="${loc}" key="local.message.invalid_not_equals_password" var="invalid_not_equals_password_message" />
-		<fmt:message bundle="${loc}" key="local.message.succes_change_password" var="succes_change_password_message" />
-		<fmt:message bundle="${loc}" key="local.message.unsucces_change_password" var="unsucces_change_password_message" />
+		<fmt:message bundle="${loc}" key="local.message.success_change_password" var="success_change_password_message" />
+		<fmt:message bundle="${loc}" key="local.message.unsuccess_change_password" var="unsuccess_change_password_message" />
 		<fmt:message bundle="${loc}" key="local.message.invalid_password" var="invalid_password_message" />
 	</head>
 	<body>		
@@ -32,15 +33,15 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-8 order-md-1">
-					<h2 class="mb-3 mt-3">Смена пароля</h2>
-					<c:if test="${not empty succes_change_password}">
-					<div class="alert alert-warning" role="alert">
-						<c:out value="${succes_change_password_message}"></c:out>
-					</div>
-					</c:if>	
-					<c:if test="${not empty unsucces_change_password}">
+					<h2 class="mb-3 mt-3">${change_password_label}</h2>
+					<c:if test="${not empty success_change_password}">
 						<div class="alert alert-warning" role="alert">
-							<c:out value="${unsucces_change_password_message}"></c:out>
+							<c:out value="${success_change_password_message}"></c:out>
+						</div>
+					</c:if>	
+					<c:if test="${not empty unsuccess_change_password}">
+						<div class="alert alert-warning" role="alert">
+							<c:out value="${unsuccess_change_password_message}"></c:out>
 						</div>
 					</c:if>	
 					<c:if test="${not empty invalid_not_equals_password}">

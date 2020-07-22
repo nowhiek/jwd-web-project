@@ -11,6 +11,11 @@ public final class SessionParameter {
 	public static final String FACULTIES = "faculties";
 	public static final String TYPE_STUDIES = "types";
 	
+	public static final String FACULTY = "c_faculty";
+	public static final String TYPE = "c_type";
+	public static final String PLAN = "c_plan";
+	public static final String ID_FACULTY = "id_faculty";
+	
 	public static final String USER = "user";
 	public static final String USERS = "users";
 	public static final String USER_DETAIL = "user_detail";
@@ -25,6 +30,7 @@ public final class SessionParameter {
 	public static final String INVALID_BIRTHDAY = "invalid_birthday";
 	public static final String INVALID_PASSPORT = "invalid_passport";
 	public static final String INVALID_CERTIFICATE = "invalid_certificate";
+	public static final String INVALID_SPECIALTY = "invalid_specialty";
 	public static final String USER_IS_BLOCKED = "user_is_blocked";
 	
 	public static final String USER_ALREADY_EXIST = "user_already_exist";
@@ -37,6 +43,22 @@ public final class SessionParameter {
 	public static final String UNSUCCESS_ADD_MATRICULANT = "unsuccess_add_matriculant";
 	public static final String SUCCESS_BAN_USER = "success_ban_user";
 	public static final String UNSUCCESS_BAN_USER = "unsuccess_ban_user";	
+	public static final String SUCCESS_REMOVE_MATRICULANT = "success_remove_matriculant";	
+	public static final String UNSUCCESS_REMOVE_MATRICULANT = "unsuccess_remove_matriculant";	
+	public static final String SUCCESS_CHANGE_USER_DATA = "success_change_user_data";	
+	public static final String UNSUCCESS_CHANGE_USER_DATA = "unsuccess_change_user_data";	
+	public static final String SUCCESS_UPDATE_FACULTY = "success_update_faculty";
+	public static final String UNSUCCESS_UPDATE_FACULTY = "unsuccess_update_faculty";
+	public static final String SUCCESS_UPDATE_TYPE = "success_update_type";
+	public static final String UNSUCCESS_UPDATE_TYPE = "unsuccess_update_type";
+	public static final String SUCCESS_UPDATE_PLAN = "success_update_plan";
+	public static final String UNSUCCESS_UPDATE_PLAN = "unsuccess_update_plan";
+	public static final String SUCCESS_ADD_FACULTY = "success_add_faculty";
+	public static final String UNSUCCESS_ADD_FACULTY = "unsuccess_add_faculty";
+	public static final String SUCCESS_ADD_PLAN = "success_add_plan";
+	public static final String UNSUCCESS_ADD_PLAN = "unsuccess_add_plan";
+	public static final String SUCCESS_ADD_TYPE = "success_add_type";
+	public static final String UNSUCCESS_ADD_TYPE = "unsuccess_add_type";
 	
 	public static final String INVALID_CHANGE_OLD_PASSWORD = "invalid_change_old_password";
 	public static final String INVALID_CHANGE_NEW_PASSWORD = "invalid_change_new_password";
@@ -47,6 +69,7 @@ public final class SessionParameter {
 	public static final String EMPTY_SPECIALTIES = "empty_specialties";
 	public static final String EMPTY_SPECIALTY = "empty_specialty";
 	public static final String EMPTY_USERS = "empty_users";
+	public static final String EMPTY_USER = "empty_user";
 	
 	private SessionParameter() {
 	}

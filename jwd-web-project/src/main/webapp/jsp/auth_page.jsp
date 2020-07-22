@@ -17,7 +17,7 @@
 	<body>
 		<jsp:include page="part/navbar.jsp"/>
 		<jsp:include page="part/header.jsp"/>
-		<form action="Controller" method="POST">
+		<form action="${pageContext.request.contextPath}/Controller" method="POST">
 			<input type="hidden" name="command" value="show_all_specialties">
 			<button class="btn btn-primary" type="submit">${show_all_specialties_button}</button>
 		</form>

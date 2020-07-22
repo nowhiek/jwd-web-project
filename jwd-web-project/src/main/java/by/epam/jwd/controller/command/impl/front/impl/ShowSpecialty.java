@@ -52,7 +52,7 @@ public class ShowSpecialty implements Command {
 				session.setAttribute(SessionParameter.EMPTY_SPECIALTY, SessionParameter.EMPTY_SPECIALTY);
 			}
 		} catch (ServiceException e) {
-			logger.log(Level.ERROR, e.getStackTrace());
+			logger.log(Level.ERROR, e);
 			page = JSPPageName.ERROR_PAGE;
 		}
 		

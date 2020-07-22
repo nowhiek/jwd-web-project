@@ -63,7 +63,7 @@ public class ChangeUserPassword implements Command {
 				request.setAttribute(SessionParameter.INVALID_PASSWORD, SessionParameter.INVALID_PASSWORD);
 			}
 		} catch (ServiceException e) {
-			logger.log(Level.ERROR, e.getStackTrace());
+			logger.log(Level.ERROR, e);
 			page = JSPPageName.ERROR_PAGE;
 		}
 		

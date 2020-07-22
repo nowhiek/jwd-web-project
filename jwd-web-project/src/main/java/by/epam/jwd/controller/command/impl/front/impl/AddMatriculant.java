@@ -37,7 +37,7 @@ public class AddMatriculant implements Command {
 		
 		String specialtyName = request.getParameter(FormParameter.SPECIALTY);
 		String certificate = request.getParameter(FormParameter.CERTIFICATE);
-				
+	
 		Matriculant matriculant = null;
 		
 		HttpSession session = request.getSession();
@@ -49,8 +49,8 @@ public class AddMatriculant implements Command {
 			
 			Specialty specialty = serviceFactory.getSpecialtyService().findSpecialtyByName(specialtyName);
 		
-			matriculant = new Matriculant(1, idUser, specialty.getId(), Integer.parseInt(certificate), false);
-			
+			matriculant = new Matriculant(1, idUser, specialty != null ? specialty.getId() : -1, !certificate.isEmpty() ? Integer.parseInt(certificate) : -1, false);
+
 			List<String> validation = validator.validate(matriculant);
 			
 			if (validation.size() == 0) {
@@ -73,7 +73,7 @@ public class AddMatriculant implements Command {
 				}
 			}			
 		} catch (ServiceException e) {
-			logger.log(Level.ERROR, e.getStackTrace());
+			logger.log(Level.ERROR, e);
 			page = JSPPageName.ERROR_PAGE;
 		}
 		

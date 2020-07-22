@@ -15,6 +15,9 @@ public final class JSPPageName {
 	public static final String ADMIN_PAGE = "WEB-INF/jsp/admin_page.jsp";
 	public static final String USER_DATA = "WEB-INF/jsp/user_data.jsp";
 	public static final String MATRICULANT_PAGE = "jsp/matriculant_page.jsp";
+	public static final String FACULTY_PAGE = "WEB-INF/jsp/faculty_page.jsp";
+	public static final String TYPE_PAGE = "WEB-INF/jsp/type_study_page.jsp";
+	public static final String PLAN_PAGE = "WEB-INF/jsp/plan_page.jsp";
 	
 	private JSPPageName() {
 	}

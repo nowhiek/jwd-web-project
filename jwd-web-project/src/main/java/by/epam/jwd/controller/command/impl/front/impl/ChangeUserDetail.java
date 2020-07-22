@@ -20,11 +20,11 @@ import by.epam.jwd.controller.command.impl.front.Command;
 import by.epam.jwd.controller.parameter.FormParameter;
 import by.epam.jwd.controller.parameter.JSPPageName;
 import by.epam.jwd.controller.parameter.SessionParameter;
+import by.epam.jwd.controller.validator.UserDetailValidator;
+import by.epam.jwd.controller.validator.ValidatorFactoryImpl;
 import by.epam.jwd.service.UserDetailService;
 import by.epam.jwd.service.exception.ServiceException;
 import by.epam.jwd.service.factory.ServiceFactory;
-import by.epam.jwd.controller.validator.UserDetailValidator;
-import by.epam.jwd.controller.validator.ValidatorFactoryImpl;
 
 public class ChangeUserDetail implements Command {
 
@@ -74,7 +74,7 @@ public class ChangeUserDetail implements Command {
 				}
 			}
 		} catch (ServiceException e) {
-			logger.log(Level.ERROR, e.getStackTrace());
+			logger.log(Level.ERROR, e);
 			page = JSPPageName.ERROR_PAGE;
 		}
 		

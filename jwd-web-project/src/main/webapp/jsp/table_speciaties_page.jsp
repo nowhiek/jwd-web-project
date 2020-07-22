@@ -22,11 +22,11 @@
 		<c:set var="count" value="0" scope="page"/>
 				
 		<div class="container" style="margin-top: 20px">
-			<form action="Controller" method="POST">
+			<form action="${pageContext.request.contextPath}/Controller" method="POST">
 			    <input type="hidden" name="command" value="show_all_specialties">
 			    <button class="btn btn btn-primary" type="submit">Список</button>
 		    </form>
-			<form action="Controller" method="POST">
+			<form action="${pageContext.request.contextPath}/Controller" method="POST">
 			    <input type="hidden" name="command" value="show_table_specialties">
 			    <button class="btn btn btn-primary" type="submit">Таблица</button>
 		    </form>

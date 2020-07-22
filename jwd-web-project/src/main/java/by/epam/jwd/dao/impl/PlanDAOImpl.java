@@ -4,6 +4,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import by.epam.jwd.bean.Plan;
 import by.epam.jwd.dao.PlanDAO;
@@ -14,6 +17,7 @@ import by.epam.jwd.dao.exception.DAOException;
 
 public class PlanDAOImpl implements PlanDAO {
 	
+	private final static String GET_ALL = "SELECT * FROM Plan";
 	private final static String ADD_PLAN = "INSERT INTO Plan (count_places) VALUES (?)";
 	private final static String GET_PLAN_BY_ID = "SELECT * from Plan WHERE id = ?";
 	private final static String GET_PLAN_BY_COUNT_PLACES = "SELECT * from Plan WHERE count_places = ?";
@@ -22,6 +26,34 @@ public class PlanDAOImpl implements PlanDAO {
 	
 	private ConnectionPool connectionPool = ConnectionPoolManager.getInstance().getConnectionPool();
 
+	@Override
+	public List<Plan> getAll() throws DAOException {
+		Connection connection = null;
+		Statement statement = null;
+		ResultSet rs = null;
+		
+		List<Plan> result = new ArrayList<>();
+		
+		try {
+			connection = connectionPool.takeConnection();
+			statement = connection.createStatement();
+		
+			rs = statement.executeQuery(GET_ALL);
+			
+			while (rs.next()) {
+				result.add(buildPlanFromDB(rs));
+			}
+		} catch (ConnectionPoolException e) {
+			throw new DAOException("Pool can't get connection.", e);
+		} catch (SQLException e) {
+			throw new DAOException("SQL can't get information.", e);
+		} finally {
+			connectionPool.closeConnection(connection, statement, rs);
+		}
+		
+		return result;
+	}
+	
 	@Override
 	public Plan getPlanById(int id) throws DAOException {
 		Plan plan = null;

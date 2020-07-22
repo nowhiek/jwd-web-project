@@ -21,7 +21,7 @@ public class MatriculantDAOImpl implements MatriculantDAO {
 	private final static String ADD_MATRICULANT = "INSERT INTO Matriculant (id_user, id_specialty, certificate, is_activated) VALUES (?, ?, ?, ?)";
 	private final static String GET_MATRICULANT_BY_ID = "SELECT * from Matriculant WHERE id = ?";
 	private final static String GET_MATRICULANT_BY_USER = "SELECT * from Matriculant WHERE id_user = ?";
-	private final static String UPDATE_MATRICULANT = "UPDATE Matriculant SET id_user = ?, id_specialty = ?, certificate = ?, is_activated = ? WHERE id = ?";
+	private final static String UPDATE_MATRICULANT = "UPDATE Matriculant SET  id_specialty = ?, certificate = ?, is_activated = ? WHERE id_user = ?";
 	private final static String REMOVE_MATRICULANT_BY_ID_USER = "DELETE FROM Matriculant WHERE id_user = ?";
 	
 	private ConnectionPool connectionPool = ConnectionPoolManager.getInstance().getConnectionPool();
@@ -120,11 +120,10 @@ public class MatriculantDAOImpl implements MatriculantDAO {
 			connection = connectionPool.takeConnection();
 			ps = connection.prepareStatement(UPDATE_MATRICULANT);
 			
-			ps.setInt(1, matriculant.getIdUser());
-			ps.setInt(2, matriculant.getIdSpecialty());
-			ps.setInt(3, matriculant.getCertificate());
-			ps.setBoolean(4, matriculant.isActivated());
-			ps.setInt(5, matriculant.getId());
+			ps.setInt(1, matriculant.getIdSpecialty());
+			ps.setInt(2, matriculant.getCertificate());
+			ps.setBoolean(3, matriculant.isActivated());
+			ps.setInt(4, matriculant.getIdUser());
 			
 			ps.executeUpdate();
 			flag = true;
